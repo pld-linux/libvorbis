@@ -1,11 +1,11 @@
 Summary:	The Vorbis General Audio Compression Codec
 Summary(pl):	Kodek kompresji audio - Vorbis
-Summary(pt_BR):	Biblioteca libvorbis versЦo 1.0 beta 4
+Summary(pt_BR):	Biblioteca libvorbis versЦo 1.0
 Summary(ru):	Кодек звуковой компрессии Vorbis
 Summary(uk):	Кодек звуково╖ компрес╕╖ Vorbis
 Name:		libvorbis
 Version:	1.0
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL
 Group:		Development/Libraries
