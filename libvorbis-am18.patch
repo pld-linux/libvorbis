@@ -1,0 +1,11 @@
+--- libvorbis-1.0.1/vorbis.m4.wiget	2003-12-18 09:43:21.053203288 +0100
++++ libvorbis-1.0.1/vorbis.m4	2003-12-18 09:43:40.810012061 +0100
+@@ -6,7 +6,7 @@
+ dnl XIPH_PATH_VORBIS([ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])
+ dnl Test for libvorbis, and define VORBIS_CFLAGS and VORBIS_LIBS
+ dnl
+-AC_DEFUN(XIPH_PATH_VORBIS,
++AC_DEFUN([XIPH_PATH_VORBIS],
+ [dnl 
+ dnl Get the cflags and libraries
+ dnl
