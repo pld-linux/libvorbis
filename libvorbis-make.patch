@@ -1,0 +1,12 @@
+diff -Nur vorbis.org/doc/Makefile.am vorbis/doc/Makefile.am
+--- vorbis.org/doc/Makefile.am	Thu Oct 12 05:12:38 2000
++++ vorbis/doc/Makefile.am	Wed Oct 25 11:31:21 2000
+@@ -2,7 +2,7 @@
+ 
+ AUTOMAKE_OPTIONS = foreign
+ 
+-docdir = $(prefix)/doc/$(PACKAGE)-$(VERSION)
++docdir = $(prefix)/share/doc/$(PACKAGE)-$(VERSION)
+ 
+ doc_DATA = v-comment.html vorbisword2.png white-ogg.png programming.html\
+ 	 vorbis.html wait.png white-xifish.png
