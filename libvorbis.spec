@@ -1,70 +1,92 @@
-Summary:	Development library for OGG Vorbis
+Summary:	The Vorbis General Audio Compression Codec
+Summary(pl):	Kodek kompresji audio - Vorbis
 Name:		libvorbis
-Version:	1.0.0_cvs2000.10.29
-Release:	1
+Version:	1.0beta4
+Release:	0.1
 License:	GPL
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
-Source0:	ftp://www.xiph.org/ogg/vorbis/download/vorbis_nightly_cvs.tgz
-Patch0:		%{name}-make.patch
-URL:		http://progen.dynodns.net/dengen/clean_theme.html
-BuildRequires:	libogg-static
+Source0:	http://www.xiph.org/ogg/vorbis/download/%{name}-%{version}.tar.gz
+Patch0:		%{name}-ac_fixes.patch
+Patch1:		%{name}-make.patch
+URL:		http://www.xiph.org/ogg/
+BuildRequires:	libtool
+BuildRequires:	automake
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%description 
-Ogg Vorbis is a fully Open, non-proprietary, patent-and-royalty-free,
-general-purpose compressed audio format for high quality
-(44.1-48.0kHz, 16+ bit, polyphonic) audio and music at fixed and
-variable bitrates from 16 to 128 kbps/channel. This places Vorbis in
-the same class as audio representations including MPEG-1 audio layer
-3, MPEG-4 audio (AAC and TwinVQ), and PAC.
+%description
+Ogg Vorbis is a fully open, non-proprietary, patent-and-royalty-free,
+general-purpose compressed audio format for audio and music at fixed
+and variable bitrates from 16 to 128 kbps/channel.
+
+%description -l pl
+Ogg Vorbis jest ca³kowicie otwartym, nie bêd±cym niczyj± w³asno¶ci±,
+wolnym od patentów, ogólnego przeznaczenia kodekiem audio i muzyki o
+sta³ej i zmiennej bitrate od 16 do 128 kbps/kana³.
 
 %package devel
 Summary:	Development files for OGG Vorbis library
+Summary(pl):	Pliki nag³ówkowe i dokumentacja developerska
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Requires:	%{name} = %{version}
 
 %description devel
-Ogg Vorbis is a fully Open, non-proprietary, patent-and-royalty-free,
-general-purpose compressed audio format for high quality
-(44.1-48.0kHz, 16+ bit, polyphonic) audio and music at fixed and
-variable bitrates from 16 to 128 kbps/channel. This places Vorbis in
-the same class as audio representations including MPEG-1 audio layer
-3, MPEG-4 audio (AAC and TwinVQ), and PAC.
+The libvorbis-devel package contains the header files and
+documentation needed to develop applications with libvorbis.
+
+%description -l pl devel
+Pliki nag³ówkowe i dokumentacja developerska potrzebna do rozwijania
+aplikacji korzystaj±cych z biblioteki libvorbis.
 
 %package static
 Summary:	Static development library for OGG Vorbis
+Summary(pl):	Biblioteka statyczna OGG Vorbis
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Requires:	%{name}-devel = %{version}
 
 %description static
-Ogg Vorbis is a fully Open, non-proprietary, patent-and-royalty-free,
-general-purpose compressed audio format for high quality
-(44.1-48.0kHz, 16+ bit, polyphonic) audio and music at fixed and
-variable bitrates from 16 to 128 kbps/channel. This places Vorbis in
-the same class as audio representations including MPEG-1 audio layer
-3, MPEG-4 audio (AAC and TwinVQ), and PAC.
+The libvorbis-static package contains the static libraries of
+libvorbis.
+
+%description -l pl static
+Biblioteka statyczna OGG Vorbis.
 
 %prep
-%setup -q -n vorbis
+%setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
-%configure
+rm missing
+libtoolize --copy --force
+aclocal
+autoconf
+automake -a -c
+%configure \
+	--enable-shared \
+	--enable-static
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	m4datadir=%{_aclocaldir}
 
 gzip -9nf README
+
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -79,6 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/*.{png,html} *.gz
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/vorbis
+%{_aclocaldir}/*.m4
 
 %files static
 %defattr(644,root,root,755)
