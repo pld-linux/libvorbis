@@ -2,21 +2,24 @@ Summary:	The Vorbis General Audio Compression Codec
 Summary(pl):	Kodek kompresji audio - Vorbis
 Name:		libvorbis
 Version:	1.0rc2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Source0:	http://www.vorbis.com/files/rc2/unix/%{name}-%{version}.tar.gz
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
 URL:		http://www.xiph.org/ogg/
-BuildRequires:	libtool
 BuildRequires:	automake
 BuildRequires:	autoconf
-BuildRequires:	libogg-devel
 BuildRequires:	libtool
+BuildRequires:	libogg-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,8 +37,12 @@ Summary:	Development files for OGG Vorbis library
 Summary(pl):	Pliki nagЁСwkowe i dokumentacja developerska
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 Requires:	libogg-devel
 
@@ -52,8 +59,12 @@ Summary:	Static development library for OGG Vorbis
 Summary(pl):	Biblioteka statyczna OGG Vorbis
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -68,8 +79,14 @@ Biblioteka statyczna OGG Vorbis.
 %patch0 -p1
 %patch1 -p1
 
+# temporary workaround for gcc 2.91-2.95.4 bug:
+%ifarch i686
+sed -e 's@-mno-ieee-fp@ @g' configure.in > configure.in.new
+mv -f configure.in.new configure.in
+%endif
+
 %build
-rm missing
+rm -f missing
 libtoolize --copy --force
 aclocal
 autoconf
@@ -88,11 +105,11 @@ rm -rf $RPM_BUILD_ROOT
 
 gzip -9nf README
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
