@@ -1,8 +1,11 @@
 Summary:	The Vorbis General Audio Compression Codec
 Summary(pl):	Kodek kompresji audio - Vorbis
+Summary(pt_BR):	Biblioteca libvorbis versЦo 1.0 beta 4
+Summary(ru):	Кодек звуковой компрессии Vorbis
+Summary(uk):	Кодек звуково╖ компрес╕╖ Vorbis
 Name:		libvorbis
 Version:	1.0rc3
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Libraries
 Source0:	http://www.xiph.org/ogg/vorbis/download/%{name}-%{version}.tar.gz
@@ -26,9 +29,29 @@ Ogg Vorbis jest caЁkowicie otwartym, nie bЙd╠cym niczyj╠ wЁasno╤ci╠,
 wolnym od patentСw, ogСlnego przeznaczenia kodekiem audio i muzyki o
 staЁej i zmiennej bitrate od 16 do 128 kbps/kanaЁ.
 
+%description -l ru
+Ogg Vorbis - это полностью открытый, свободный от патентов и авторских
+отчислений формат сжатия аудиоданных с фиксированным и изменяющимся
+битрейтом от 16 до 128 килобит в секунду на канал.
+
+%description -l uk
+Ogg Vorbis - це повн╕стю в╕дкритий, в╕льний в╕д патент╕в та авторських
+в╕драхувань формат компресованого ауд╕о з ф╕ксованим та зм╕нним
+б╕трейтом в╕д 16 до 128 к╕лоб╕т в секунду на канал.
+
+%description -l pt_BR
+Ogg Vorbis e' um formato de Аudio aberto de propСsito geral,
+nЦo-proprietАrio e isento de patentes e royalties, para Аudio e musica
+de alta qualidade (44.1-48.0kHz, 16+ bit, polifonico) com bitrate fixo
+ou variАvel de 16 a 128 kbps/canal. Isso coloca Vorbis na mesma
+categoria de MPEG-1 audio layer 3, MPEG-3 audio (AAC e TwinVQ) e PAQ.
+
 %package devel
 Summary:	Development files for OGG Vorbis library
 Summary(pl):	Pliki nagЁСwkowe i dokumentacja developerska
+Summary(pt_BR):	Bibliotecas para desenvolvimento com o vorbis
+Summary(ru):	Библиотека Vorbis - Разработка
+Summary(uk):	Б╕бл╕отека Vorbis - Розробка
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 Requires:	libogg-devel
@@ -42,9 +65,23 @@ documentation needed to develop applications with libvorbis.
 Pliki nagЁСwkowe i dokumentacja developerska potrzebna do rozwijania
 aplikacji korzystaj╠cych z biblioteki libvorbis.
 
+%description devel -l pt_BR
+Bibliotecas e arquivos de inclusЦo para desenvolvimento com o codec
+Vorbis.
+
+%description devel -l ru
+Пакет libvorbis-devel содержит файлы заголовков и документацию для
+разработки программ с libvorbis.
+
+%description devel -l uk
+Пакет libvorbis-devel м╕стить файли заголовк╕в та документац╕ю для
+розробки програм з libvorbis.
+
 %package static
 Summary:	Static development library for OGG Vorbis
+Summary(es):	Bibliotecas estАticas
 Summary(pl):	Biblioteka statyczna OGG Vorbis
+Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com o vorbis
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
@@ -54,6 +91,9 @@ libvorbis.
 
 %description static -l pl
 Biblioteka statyczna OGG Vorbis.
+
+%description static -l pt_BR
+Bibliotecas estАticas para desenvolvimento com o codec Vorbis.
 
 %prep
 %setup -q
