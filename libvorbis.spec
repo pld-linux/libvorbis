@@ -8,7 +8,7 @@ Version:	1.0
 Release:	5
 Epoch:		1
 License:	BSD
-Group:		Development/Libraries
+Group:		Libraries
 Source0:	http://www.xiph.org/ogg/vorbis/download/%{name}-%{version}.tar.gz
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
