@@ -5,13 +5,6 @@ Version:	1.0rc3
 Release:	1
 License:	GPL
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Source0:	http://www.vorbis.com/files/rc2/unix/%{name}-%{version}.tar.gz
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
@@ -37,13 +30,6 @@ staЁej i zmiennej bitrate od 16 do 128 kbps/kanaЁ.
 Summary:	Development files for OGG Vorbis library
 Summary(pl):	Pliki nagЁСwkowe i dokumentacja developerska
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 Requires:	libogg-devel
 Obsoletes:	libvorbis0-devel
@@ -60,13 +46,6 @@ aplikacji korzystaj╠cych z biblioteki libvorbis.
 Summary:	Static development library for OGG Vorbis
 Summary(pl):	Biblioteka statyczna OGG Vorbis
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
