@@ -1,12 +1,43 @@
-diff -Nur vorbis.org/doc/Makefile.am vorbis/doc/Makefile.am
---- vorbis.org/doc/Makefile.am	Thu Oct 12 05:12:38 2000
-+++ vorbis/doc/Makefile.am	Wed Oct 25 11:31:21 2000
-@@ -2,7 +2,7 @@
+diff -urN libvorbis-1.0beta4.org/examples/Makefile.am libvorbis-1.0beta4/examples/Makefile.am
+--- libvorbis-1.0beta4.org/examples/Makefile.am	Sun Apr 29 00:04:26 2001
++++ libvorbis-1.0beta4/examples/Makefile.am	Sun Apr 29 01:10:25 2001
+@@ -7,7 +7,7 @@
+ noinst_PROGRAMS = decoder_example encoder_example chaining_example\
+ 		vorbisfile_example seeking_example
  
- AUTOMAKE_OPTIONS = foreign
+-LDFLAGS = -static
++LDFLAGS =
+ LDADD = ../lib/libvorbis.la
  
--docdir = $(prefix)/doc/$(PACKAGE)-$(VERSION)
-+docdir = $(prefix)/share/doc/$(PACKAGE)-$(VERSION)
+ decoder_example_SOURCES = decoder_example.c
+diff -urN libvorbis-1.0beta4.org/lib/Makefile.am libvorbis-1.0beta4/lib/Makefile.am
+--- libvorbis-1.0beta4.org/lib/Makefile.am	Sun Apr 29 00:04:26 2001
++++ libvorbis-1.0beta4/lib/Makefile.am	Sun Apr 29 01:10:55 2001
+@@ -30,7 +30,7 @@
+ barkmel_SOURCES = barkmel.c
+ tone_SOURCES = tone.c
+ psytune_SOURCES = psytune.c
+-psytune_LDFLAGS = -static
++psytune_LDFLAGS = 
+ psytune_LDADD = libvorbis.la
  
- doc_DATA = v-comment.html vorbisword2.png white-ogg.png programming.html\
- 	 vorbis.html wait.png white-xifish.png
+ EXTRA_DIST = lookups.pl iir.c
+diff -urN libvorbis-1.0beta4.org/vq/Makefile.am libvorbis-1.0beta4/vq/Makefile.am
+--- libvorbis-1.0beta4.org/vq/Makefile.am	Sun Apr 29 00:04:26 2001
++++ libvorbis-1.0beta4/vq/Makefile.am	Sun Apr 29 01:10:38 2001
+@@ -9,7 +9,7 @@
+ 	latticetune huffbuild residuesplit distribution
+ CLEANFILES = $(EXTRA_PROGRAMS)
+ 
+-LDFLAGS = -static
++LDFLAGS = 
+ LDADD = ../lib/libvorbis.la
+ 
+ lspvqtrain_SOURCES = lspdata.c train.c vqgen.c bookutil.c\
+@@ -48,4 +48,4 @@
+ 	$(MAKE) vq CFLAGS="@PROFILE@"
+ 
+ vq: 
+-	$(MAKE) $(EXTRA_PROGRAMS) 
+\ No newline at end of file
++	$(MAKE) $(EXTRA_PROGRAMS) 
