@@ -2,7 +2,7 @@ Summary:	The Vorbis General Audio Compression Codec
 Summary(pl):	Kodek kompresji audio - Vorbis
 Name:		libvorbis
 Version:	1.0beta4
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
@@ -15,6 +15,7 @@ URL:		http://www.xiph.org/ogg/
 BuildRequires:	libtool
 BuildRequires:	automake
 BuildRequires:	autoconf
+BuildRequires:	libogg-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -35,6 +36,7 @@ Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
+Requires:	libogg-devel
 
 %description devel
 The libvorbis-devel package contains the header files and
@@ -94,12 +96,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_libdir}/lib*.la
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/*.{png,html} *.gz
 %attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.la
 %{_includedir}/vorbis
 %{_aclocaldir}/*.m4
 
