@@ -5,7 +5,7 @@ Version:	1.0rc3
 Release:	1
 License:	GPL
 Group:		Development/Libraries
-Source0:	http://www.vorbis.com/files/rc2/unix/%{name}-%{version}.tar.gz
+Source0:	http://www.xiph.org/ogg/vorbis/download/%{name}-%{version}.tar.gz
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
 URL:		http://www.xiph.org/ogg/
