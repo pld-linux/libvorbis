@@ -5,7 +5,7 @@ Summary(ru):	Кодек звуковой компрессии Vorbis
 Summary(uk):	Кодек звуково╖ компрес╕╖ Vorbis
 Name:		libvorbis
 Version:	1.0
-Release:	4
+Release:	5
 Epoch:		1
 License:	BSD
 Group:		Development/Libraries
@@ -13,7 +13,7 @@ Source0:	http://www.xiph.org/ogg/vorbis/download/%{name}-%{version}.tar.gz
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
 URL:		http://www.xiph.org/ogg/
-%requires_eq    libogg
+%requires_eq	libogg
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	libtool
@@ -111,7 +111,7 @@ mv -f configure.in.new configure.in
 %build
 rm -f missing
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
