@@ -5,7 +5,7 @@ Summary(ru):	Кодек звуковой компрессии Vorbis
 Summary(uk):	Кодек звуково╖ компрес╕╖ Vorbis
 Name:		libvorbis
 Version:	1.0
-Release:	5
+Release:	6
 Epoch:		1
 License:	BSD
 Group:		Libraries
@@ -13,10 +13,12 @@ Source0:	http://www.xiph.org/ogg/vorbis/download/%{name}-%{version}.tar.gz
 # Source0-md5: d1ad94fe8e240269c790e18992171e53
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
+Patch2:		%{name}-testfix.patch
 URL:		http://www.xiph.org/ogg/
 %requires_eq	libogg
 BuildRequires:	automake
 BuildRequires:	autoconf
+BuildRequires:	gcc >= 5:3.0
 BuildRequires:	libtool
 BuildRequires:	libogg-devel >= 2:%{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -102,15 +104,9 @@ Bibliotecas estАticas para desenvolvimento com o codec Vorbis.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-
-# temporary workaround for gcc 2.91-2.95.4 bug:
-%ifarch i686
-sed -e 's@-mno-ieee-fp@ @g' configure.in > configure.in.new
-mv -f configure.in.new configure.in
-%endif
+%patch2 -p1
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -137,11 +133,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc README COPYING
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc README COPYING doc/*
+%doc doc/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/vorbis
