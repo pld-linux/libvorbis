@@ -34,10 +34,3 @@ diff -urN libvorbis-1.0beta4.org/vq/Makefile.am libvorbis-1.0beta4/vq/Makefile.a
  LDADD = ../lib/libvorbis.la
  
  lspvqtrain_SOURCES = lspdata.c train.c vqgen.c bookutil.c\
-@@ -48,4 +48,4 @@
- 	$(MAKE) vq CFLAGS="@PROFILE@"
- 
- vq: 
--	$(MAKE) $(EXTRA_PROGRAMS) 
-\ No newline at end of file
-+	$(MAKE) $(EXTRA_PROGRAMS) 
