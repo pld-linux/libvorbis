@@ -10,6 +10,7 @@ Epoch:		1
 License:	BSD
 Group:		Libraries
 Source0:	http://www.xiph.org/ogg/vorbis/download/%{name}-%{version}.tar.gz
+# Source0-md5: d1ad94fe8e240269c790e18992171e53
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
 URL:		http://www.xiph.org/ogg/
