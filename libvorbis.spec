@@ -2,7 +2,7 @@ Summary:	The Vorbis General Audio Compression Codec
 Summary(pl):	Kodek kompresji audio - Vorbis
 Name:		libvorbis
 Version:	1.0rc2
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
@@ -21,6 +21,7 @@ BuildRequires:	autoconf
 BuildRequires:	libtool
 BuildRequires:	libogg-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	libvorbis0
 
 %description
 Ogg Vorbis is a fully open, non-proprietary, patent-and-royalty-free,
@@ -45,6 +46,7 @@ Group(ru):	Разработка/Библиотеки
 Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 Requires:	libogg-devel
+Obsoletes:	libvorbis0-devel
 
 %description devel
 The libvorbis-devel package contains the header files and
