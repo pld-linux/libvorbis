@@ -2,7 +2,7 @@ Summary:	The Vorbis General Audio Compression Codec
 Summary(pl):	Kodek kompresji audio - Vorbis
 Name:		libvorbis
 Version:	1.0beta4
-Release:	0.2
+Release:	1
 License:	GPL
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
@@ -87,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 
 gzip -9nf README
 
-%post -p /sbin/ldconfig
+%post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
 %clean
