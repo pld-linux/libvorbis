@@ -56,7 +56,7 @@ Summary(pt_BR):	Bibliotecas para desenvolvimento com o vorbis
 Summary(ru):	Библиотека Vorbis - Разработка
 Summary(uk):	Б╕бл╕отека Vorbis - Розробка
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 Requires:	libogg-devel
 Obsoletes:	libvorbis0-devel
 
@@ -86,7 +86,7 @@ Summary(es):	Bibliotecas estАticas
 Summary(pl):	Biblioteka statyczna OGG Vorbis
 Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com o vorbis
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{epoch}:%{version}
 
 %description static
 The libvorbis-static package contains the static libraries of
