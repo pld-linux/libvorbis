@@ -5,7 +5,7 @@ Summary(ru):	Кодек звуковой компрессии Vorbis
 Summary(uk):	Кодек звуково╖ компрес╕╖ Vorbis
 Name:		libvorbis
 Version:	1.0.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	BSD
 Group:		Libraries
@@ -13,6 +13,7 @@ Source0:	http://www.vorbis.com/files/%{version}/unix/%{name}-%{version}.tar.gz
 # Source0-md5:	4d6726fd02ce02f6e24824e594b0949a
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
+Patch2:		%{name}-am18.patch
 URL:		http://www.vorbis.com/
 BuildRequires:	automake
 BuildRequires:	autoconf
@@ -103,6 +104,7 @@ Bibliotecas estАticas para desenvolvimento com o codec Vorbis.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
