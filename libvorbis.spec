@@ -4,16 +4,15 @@ Summary(pt_BR):	Biblioteca libvorbis
 Summary(ru):	ëÏÄÅË Ú×ÕËÏ×ÏÊ ËÏÍÐÒÅÓÓÉÉ Vorbis
 Summary(uk):	ëÏÄÅË Ú×ÕËÏ×Ï§ ËÏÍÐÒÅÓ¦§ Vorbis
 Name:		libvorbis
-Version:	1.0.1
-Release:	2
+Version:	1.1.0
+Release:	1
 Epoch:		1
 License:	BSD
 Group:		Libraries
-Source0:	http://www.vorbis.com/files/%{version}/unix/%{name}-%{version}.tar.gz
-# Source0-md5:	4d6726fd02ce02f6e24824e594b0949a
+Source0:	http://downloads.xiph.org/releases/vorbis/%{name}-%{version}.tar.gz
+# Source0-md5:	bb764aeabde613d1a424a29b1f15e7e6
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
-Patch2:		%{name}-am18.patch
 URL:		http://www.vorbis.com/
 BuildRequires:	automake
 BuildRequires:	autoconf
@@ -21,8 +20,8 @@ BuildRequires:	gcc >= 5:3.0
 BuildRequires:	libtool
 BuildRequires:	libogg-devel >= 2:1.0
 Requires:	libogg >= 2:1.0
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libvorbis0
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Ogg Vorbis is a fully open, non-proprietary, patent-and-royalty-free,
@@ -58,7 +57,7 @@ Summary(pt_BR):	Bibliotecas para desenvolvimento com o vorbis
 Summary(ru):	âÉÂÌÉÏÔÅËÁ Vorbis - òÁÚÒÁÂÏÔËÁ
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ Vorbis - òÏÚÒÏÂËÁ
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	libogg-devel >= 2:1.0
 Obsoletes:	libvorbis0-devel
 
@@ -88,7 +87,7 @@ Summary(es):	Bibliotecas estáticas
 Summary(pl):	Biblioteka statyczna OGG Vorbis
 Summary(pt_BR):	Bibliotecas estáticas para desenvolvimento com o vorbis
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 The libvorbis-static package contains the static libraries of
@@ -104,7 +103,6 @@ Bibliotecas estáticas para desenvolvimento com o codec Vorbis.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__libtoolize}
