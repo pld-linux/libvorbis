@@ -16,6 +16,7 @@ BuildRequires:	libtool
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	libogg-devel
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
