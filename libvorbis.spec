@@ -4,8 +4,9 @@ Summary(pt_BR):	Biblioteca libvorbis versЦo 1.0 beta 4
 Summary(ru):	Кодек звуковой компрессии Vorbis
 Summary(uk):	Кодек звуково╖ компрес╕╖ Vorbis
 Name:		libvorbis
-Version:	1.0rc3
-Release:	2
+Version:	1.0
+Release:	1
+Epoch:		1
 License:	GPL
 Group:		Development/Libraries
 Source0:	http://www.xiph.org/ogg/vorbis/download/%{name}-%{version}.tar.gz
@@ -15,7 +16,7 @@ URL:		http://www.xiph.org/ogg/
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	libtool
-BuildRequires:	libogg-devel
+BuildRequires:	libogg-devel >= 2:1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libvorbis0
 
@@ -124,8 +125,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	m4datadir=%{_aclocaldir}
 
-gzip -9nf README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -138,7 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/*.{png,html} *.gz
+%doc README doc/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_includedir}/vorbis
