@@ -5,7 +5,7 @@ diff -urN libvorbis-1.0beta4.org/examples/Makefile.am libvorbis-1.0beta4/example
  noinst_PROGRAMS = decoder_example encoder_example chaining_example\
  		vorbisfile_example seeking_example
  
--LDFLAGS = -static
+-LDFLAGS = -all-static
 +LDFLAGS =
  LDADD = ../lib/libvorbis.la
  
