@@ -5,7 +5,7 @@ Summary(ru):	Кодек звуковой компрессии Vorbis
 Summary(uk):	Кодек звуково╖ компрес╕╖ Vorbis
 Name:		libvorbis
 Version:	1.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Development/Libraries
@@ -124,6 +124,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	m4datadir=%{_aclocaldir}
+
+rm -f doc/Makefile* doc/*/Makefile*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
