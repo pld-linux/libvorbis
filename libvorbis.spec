@@ -4,23 +4,22 @@ Summary(pt_BR):	Biblioteca libvorbis
 Summary(ru):	Кодек звуковой компрессии Vorbis
 Summary(uk):	Кодек звуково╖ компрес╕╖ Vorbis
 Name:		libvorbis
-Version:	1.0
-Release:	6
+Version:	1.0.1
+Release:	1
 Epoch:		1
 License:	BSD
 Group:		Libraries
-Source0:	http://www.xiph.org/ogg/vorbis/download/%{name}-%{version}.tar.gz
-# Source0-md5: d1ad94fe8e240269c790e18992171e53
+Source0:	http://www.vorbis.com/files/%{version}/unix/%{name}-%{version}.tar.gz
+# Source0-md5:	4d6726fd02ce02f6e24824e594b0949a
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
-Patch2:		%{name}-testfix.patch
-URL:		http://www.xiph.org/ogg/
-%requires_eq	libogg
+URL:		http://www.vorbis.com/
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	gcc >= 5:3.0
 BuildRequires:	libtool
-BuildRequires:	libogg-devel >= 2:%{version}
+BuildRequires:	libogg-devel >= 2:1.0
+Requires:	libogg >= 2:1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libvorbis0
 
@@ -59,7 +58,7 @@ Summary(ru):	Библиотека Vorbis - Разработка
 Summary(uk):	Б╕бл╕отека Vorbis - Розробка
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}
-Requires:	libogg-devel
+Requires:	libogg-devel >= 2:1.0
 Obsoletes:	libvorbis0-devel
 
 %description devel
@@ -104,7 +103,6 @@ Bibliotecas estАticas para desenvolvimento com o codec Vorbis.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -123,7 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	m4datadir=%{_aclocaldir}
 
-rm -f doc/Makefile* doc/*/Makefile*
+mv -f $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version} devel-docs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -133,16 +131,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README COPYING
+%doc AUTHORS COPYING README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/*
+%doc devel-docs/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/vorbis
 %{_aclocaldir}/*.m4
+%{_pkgconfigdir}/*.pc
 
 %files static
 %defattr(644,root,root,755)
