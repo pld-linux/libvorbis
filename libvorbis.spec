@@ -51,9 +51,9 @@ ou variАvel de 16 a 128 kbps/canal. Isso coloca Vorbis na mesma
 categoria de MPEG-1 audio layer 3, MPEG-3 audio (AAC e TwinVQ) e PAQ.
 
 %package devel
-Summary:	Development files for OGG Vorbis library
+Summary:	Development files for Ogg Vorbis library
 Summary(pl):	Pliki nagЁСwkowe i dokumentacja developerska
-Summary(pt_BR):	Bibliotecas para desenvolvimento com o vorbis
+Summary(pt_BR):	Bibliotecas para desenvolvimento com o Vorbis
 Summary(ru):	Библиотека Vorbis - Разработка
 Summary(uk):	Б╕бл╕отека Vorbis - Розробка
 Group:		Development/Libraries
@@ -82,10 +82,10 @@ Vorbis.
 розробки програм з libvorbis.
 
 %package static
-Summary:	Static development library for OGG Vorbis
+Summary:	Static development library for Ogg Vorbis
 Summary(es):	Bibliotecas estАticas
-Summary(pl):	Biblioteka statyczna OGG Vorbis
-Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com o vorbis
+Summary(pl):	Biblioteka statyczna Ogg Vorbis
+Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com o Vorbis
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
@@ -94,7 +94,7 @@ The libvorbis-static package contains the static libraries of
 libvorbis.
 
 %description static -l pl
-Biblioteka statyczna OGG Vorbis.
+Biblioteka statyczna Ogg Vorbis.
 
 %description static -l pt_BR
 Bibliotecas estАticas para desenvolvimento com o codec Vorbis.
