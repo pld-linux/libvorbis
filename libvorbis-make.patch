@@ -1,15 +1,3 @@
-diff -urN libvorbis-1.0beta4.org/examples/Makefile.am libvorbis-1.0beta4/examples/Makefile.am
---- libvorbis-1.0beta4.org/examples/Makefile.am	Sun Apr 29 00:04:26 2001
-+++ libvorbis-1.0beta4/examples/Makefile.am	Sun Apr 29 01:10:25 2001
-@@ -7,7 +7,7 @@
- noinst_PROGRAMS = decoder_example encoder_example chaining_example\
- 		vorbisfile_example seeking_example
- 
--LDFLAGS = -all-static
-+LDFLAGS =
- LDADD = ../lib/libvorbis.la
- 
- decoder_example_SOURCES = decoder_example.c
 diff -urN libvorbis-1.0beta4.org/lib/Makefile.am libvorbis-1.0beta4/lib/Makefile.am
 --- libvorbis-1.0beta4.org/lib/Makefile.am	Sun Apr 29 00:04:26 2001
 +++ libvorbis-1.0beta4/lib/Makefile.am	Sun Apr 29 01:10:55 2001
@@ -22,15 +10,14 @@ diff -urN libvorbis-1.0beta4.org/lib/Makefile.am libvorbis-1.0beta4/lib/Makefile
  psytune_LDADD = libvorbis.la
  
  EXTRA_DIST = lookups.pl iir.c
-diff -urN libvorbis-1.0beta4.org/vq/Makefile.am libvorbis-1.0beta4/vq/Makefile.am
---- libvorbis-1.0beta4.org/vq/Makefile.am	Sun Apr 29 00:04:26 2001
-+++ libvorbis-1.0beta4/vq/Makefile.am	Sun Apr 29 01:10:38 2001
+--- libvorbis-1.1.0.orig/vq/Makefile.am	Sun Apr 29 00:04:26 2001
++++ libvorbis-1.1.0/vq/Makefile.am	Sun Apr 29 01:10:38 2001
 @@ -9,7 +9,7 @@
  	latticetune huffbuild residuesplit distribution
  CLEANFILES = $(EXTRA_PROGRAMS)
  
--LDFLAGS = -static
-+LDFLAGS = 
+-AM_LDFLAGS = -static
++AM_LDFLAGS = 
  LDADD = ../lib/libvorbis.la
  
  lspvqtrain_SOURCES = lspdata.c train.c vqgen.c bookutil.c\
