@@ -108,7 +108,7 @@ mv -f configure.in.new configure.in
 
 %build
 rm -f missing
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 %{__autoconf}
 %{__automake}
