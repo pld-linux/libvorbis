@@ -38,7 +38,7 @@ Obsoletes:	libvorbis0-devel
 The libvorbis-devel package contains the header files and
 documentation needed to develop applications with libvorbis.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nag³ówkowe i dokumentacja developerska potrzebna do rozwijania
 aplikacji korzystaj±cych z biblioteki libvorbis.
 
@@ -52,7 +52,7 @@ Requires:	%{name}-devel = %{version}
 The libvorbis-static package contains the static libraries of
 libvorbis.
 
-%description -l pl static
+%description static -l pl
 Biblioteka statyczna OGG Vorbis.
 
 %prep
