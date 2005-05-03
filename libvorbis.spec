@@ -5,7 +5,7 @@ Summary(ru):	Кодек звуковой компрессии Vorbis
 Summary(uk):	Кодек звуково╖ компрес╕╖ Vorbis
 Name:		libvorbis
 Version:	1.1.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	BSD
 Group:		Libraries
