@@ -1,8 +1,8 @@
 Summary:	The Vorbis General Audio Compression Codec
-Summary(pl.UTF-8):   Kodek kompresji audio - Vorbis
-Summary(pt_BR.UTF-8):   Biblioteca libvorbis
-Summary(ru.UTF-8):   Кодек звуковой компрессии Vorbis
-Summary(uk.UTF-8):   Кодек звукової компресії Vorbis
+Summary(pl.UTF-8):	Kodek kompresji audio - Vorbis
+Summary(pt_BR.UTF-8):	Biblioteca libvorbis
+Summary(ru.UTF-8):	Кодек звуковой компрессии Vorbis
+Summary(uk.UTF-8):	Кодек звукової компресії Vorbis
 Name:		libvorbis
 Version:	1.1.2
 Release:	2
@@ -52,10 +52,10 @@ categoria de MPEG-1 audio layer 3, MPEG-3 audio (AAC e TwinVQ) e PAQ.
 
 %package devel
 Summary:	Development files for Ogg Vorbis library
-Summary(pl.UTF-8):   Pliki nagłówkowe i dokumentacja developerska
-Summary(pt_BR.UTF-8):   Bibliotecas para desenvolvimento com o Vorbis
-Summary(ru.UTF-8):   Библиотека Vorbis - Разработка
-Summary(uk.UTF-8):   Бібліотека Vorbis - Розробка
+Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja developerska
+Summary(pt_BR.UTF-8):	Bibliotecas para desenvolvimento com o Vorbis
+Summary(ru.UTF-8):	Библиотека Vorbis - Разработка
+Summary(uk.UTF-8):	Бібліотека Vorbis - Розробка
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	libogg-devel >= 2:1.0
@@ -83,9 +83,9 @@ Vorbis.
 
 %package static
 Summary:	Static development library for Ogg Vorbis
-Summary(es.UTF-8):   Bibliotecas estáticas
-Summary(pl.UTF-8):   Biblioteka statyczna Ogg Vorbis
-Summary(pt_BR.UTF-8):   Bibliotecas estáticas para desenvolvimento com o Vorbis
+Summary(es.UTF-8):	Bibliotecas estáticas
+Summary(pl.UTF-8):	Biblioteka statyczna Ogg Vorbis
+Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com o Vorbis
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
