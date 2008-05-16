@@ -5,7 +5,7 @@ Summary(ru.UTF-8):	Кодек звуковой компрессии Vorbis
 Summary(uk.UTF-8):	Кодек звукової компресії Vorbis
 Name:		libvorbis
 Version:	1.2.0
-Release:	2
+Release:	3
 Epoch:		1
 License:	BSD
 Group:		Libraries
@@ -13,6 +13,7 @@ Source0:	http://downloads.xiph.org/releases/vorbis/%{name}-%{version}.tar.bz2
 # Source0-md5:	7c6e409d7aa1fa8a5481dea571d5bde0
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
+Patch2:		%{name}-security-fixes.patch
 URL:		http://www.vorbis.com/
 BuildRequires:	automake
 BuildRequires:	autoconf
@@ -103,6 +104,7 @@ Bibliotecas estáticas para desenvolvimento com o codec Vorbis.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -132,17 +134,30 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS CHANGES COPYING README
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libvorbis.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libvorbis.so.0
+%attr(755,root,root) %{_libdir}/libvorbisenc.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libvorbisenc.so.2
+%attr(755,root,root) %{_libdir}/libvorbisfile.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libvorbisfile.so.3
 
 %files devel
 %defattr(644,root,root,755)
 %doc devel-docs/*
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libvorbis.so
+%attr(755,root,root) %{_libdir}/libvorbisenc.so
+%attr(755,root,root) %{_libdir}/libvorbisfile.so
+%{_libdir}/libvorbis.la
+%{_libdir}/libvorbisenc.la
+%{_libdir}/libvorbisfile.la
 %{_includedir}/vorbis
 %{_aclocaldir}/*.m4
-%{_pkgconfigdir}/*.pc
+%{_pkgconfigdir}/vorbis.pc
+%{_pkgconfigdir}/vorbisenc.pc
+%{_pkgconfigdir}/vorbisfile.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libvorbis.a
+%{_libdir}/libvorbisenc.a
+%{_libdir}/libvorbisfile.a
