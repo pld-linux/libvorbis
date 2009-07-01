@@ -4,22 +4,22 @@ Summary(pt_BR.UTF-8):	Biblioteca libvorbis
 Summary(ru.UTF-8):	Кодек звуковой компрессии Vorbis
 Summary(uk.UTF-8):	Кодек звукової компресії Vorbis
 Name:		libvorbis
-Version:	1.2.0
-Release:	5
+Version:	1.2.2
+Release:	1
 Epoch:		1
 License:	BSD
 Group:		Libraries
 Source0:	http://downloads.xiph.org/releases/vorbis/%{name}-%{version}.tar.bz2
-# Source0-md5:	7c6e409d7aa1fa8a5481dea571d5bde0
+# Source0-md5:	7a38198f40efb9e463af5d29083f1a23
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
-Patch2:		%{name}-security-fixes.patch
 URL:		http://www.vorbis.com/
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	gcc >= 5:3.0
 BuildRequires:	libtool
 BuildRequires:	libogg-devel >= 2:1.0
+BuildRequires:	pkgconfig
 Requires:	libogg >= 2:1.0
 Obsoletes:	libvorbis0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -104,12 +104,12 @@ Bibliotecas estáticas para desenvolvimento com o codec Vorbis.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--enable-shared \
