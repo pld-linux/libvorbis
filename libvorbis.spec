@@ -14,8 +14,8 @@ Source0:	http://downloads.xiph.org/releases/vorbis/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
 URL:		http://www.vorbis.com/
-BuildRequires:	automake
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake >= 1:1.6
 BuildRequires:	gcc >= 5:3.0
 BuildRequires:	libtool
 BuildRequires:	libogg-devel >= 2:1.0
@@ -151,7 +151,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libvorbisenc.la
 %{_libdir}/libvorbisfile.la
 %{_includedir}/vorbis
-%{_aclocaldir}/*.m4
+%{_aclocaldir}/vorbis.m4
 %{_pkgconfigdir}/vorbis.pc
 %{_pkgconfigdir}/vorbisenc.pc
 %{_pkgconfigdir}/vorbisfile.pc
