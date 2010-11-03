@@ -17,8 +17,8 @@ URL:		http://www.vorbis.com/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.6
 BuildRequires:	gcc >= 5:3.0
-BuildRequires:	libtool
 BuildRequires:	libogg-devel >= 2:1.0
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
