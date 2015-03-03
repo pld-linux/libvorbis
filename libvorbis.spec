@@ -4,13 +4,13 @@ Summary(pt_BR.UTF-8):	Biblioteca libvorbis
 Summary(ru.UTF-8):	Кодек звуковой компрессии Vorbis
 Summary(uk.UTF-8):	Кодек звукової компресії Vorbis
 Name:		libvorbis
-Version:	1.3.4
-Release:	2
+Version:	1.3.5
+Release:	1
 Epoch:		1
 License:	BSD
 Group:		Libraries
 Source0:	http://downloads.xiph.org/releases/vorbis/%{name}-%{version}.tar.xz
-# Source0-md5:	55f2288055e44754275a17c9a2497391
+# Source0-md5:	28cb28097c07a735d6af56e598e1c90f
 Patch0:		%{name}-ac_fixes.patch
 Patch1:		%{name}-make.patch
 URL:		http://www.vorbis.com/
