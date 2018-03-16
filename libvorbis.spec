@@ -4,16 +4,15 @@ Summary(pt_BR.UTF-8):	Biblioteca libvorbis
 Summary(ru.UTF-8):	Кодек звуковой компрессии Vorbis
 Summary(uk.UTF-8):	Кодек звукової компресії Vorbis
 Name:		libvorbis
-Version:	1.3.5
+Version:	1.3.6
 Release:	1
 Epoch:		1
 License:	BSD
 Group:		Libraries
-Source0:	http://downloads.xiph.org/releases/vorbis/%{name}-%{version}.tar.xz
-# Source0-md5:	28cb28097c07a735d6af56e598e1c90f
-Patch0:		%{name}-ac_fixes.patch
-Patch1:		%{name}-make.patch
-URL:		http://www.vorbis.com/
+Source0:	https://downloads.xiph.org/releases/vorbis/%{name}-%{version}.tar.xz
+# Source0-md5:	b7d1692f275c73e7833ed1cc2697cd65
+Patch0:		%{name}-make.patch
+URL:		https://xiph.org/vorbis/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.6
 BuildRequires:	gcc >= 5:3.0
@@ -105,7 +104,6 @@ Bibliotecas estáticas para desenvolvimento com o codec Vorbis.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -113,7 +111,8 @@ Bibliotecas estáticas para desenvolvimento com o codec Vorbis.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--disable-silent-rules
 
 %{__make}
 
@@ -124,7 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	m4datadir=%{_aclocaldir}
 
-mv -f $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version} devel-docs
+%{__mv} $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version} devel-docs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -134,7 +133,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS CHANGES COPYING README
+%doc AUTHORS CHANGES COPYING
 %attr(755,root,root) %{_libdir}/libvorbis.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libvorbis.so.0
 %attr(755,root,root) %{_libdir}/libvorbisenc.so.*.*.*
