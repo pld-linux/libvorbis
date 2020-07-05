@@ -4,17 +4,17 @@ Summary(pt_BR.UTF-8):	Biblioteca libvorbis
 Summary(ru.UTF-8):	Кодек звуковой компрессии Vorbis
 Summary(uk.UTF-8):	Кодек звукової компресії Vorbis
 Name:		libvorbis
-Version:	1.3.6
+Version:	1.3.7
 Release:	1
 Epoch:		1
 License:	BSD
 Group:		Libraries
 Source0:	https://downloads.xiph.org/releases/vorbis/%{name}-%{version}.tar.xz
-# Source0-md5:	b7d1692f275c73e7833ed1cc2697cd65
+# Source0-md5:	50902641d358135f06a8392e61c9ac77
 Patch0:		%{name}-make.patch
 URL:		https://xiph.org/vorbis/
 BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake >= 1:1.6
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	gcc >= 5:3.0
 BuildRequires:	libogg-devel >= 2:1.0
 BuildRequires:	libtool
