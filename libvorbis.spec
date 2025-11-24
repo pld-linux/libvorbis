@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static libraries
+
 Summary:	The Vorbis General Audio Compression Codec
 Summary(pl.UTF-8):	Kodek kompresji audio - Vorbis
 Summary(pt_BR.UTF-8):	Biblioteca libvorbis
@@ -19,6 +23,7 @@ BuildRequires:	gcc >= 5:3.0
 BuildRequires:	libogg-devel >= 2:1.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.527
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	libogg >= 2:1.0
@@ -112,7 +117,8 @@ Bibliotecas estáticas para desenvolvimento com o codec Vorbis.
 %{__autoheader}
 %{__automake}
 %configure \
-	--disable-silent-rules
+	--disable-silent-rules \
+	%{__enable_disable static_libs static}
 
 %{__make}
 
@@ -156,8 +162,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/vorbisenc.pc
 %{_pkgconfigdir}/vorbisfile.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libvorbis.a
 %{_libdir}/libvorbisenc.a
 %{_libdir}/libvorbisfile.a
+%endif
